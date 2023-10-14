@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Map.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ui/WarpArea.tscn" type="PackedScene" id=2]
+
+[sub_resource type="NavigationPolygon" id=1]
+vertices = PoolVector2Array( -192, -136, 1005, -71, 975, 712, -78, 630 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+outlines = [ PoolVector2Array( -192, -136, 1005, -71, 975, 712, -78, 630 ) ]
+
+[node name="WarpTest1" instance=ExtResource( 1 )]
+camera_bounds = Rect2( 0, 0, 3000, 30000 )
+
+[node name="NavigationPolygonInstance" parent="." index="0"]
+navpoly = SubResource( 1 )
+
+[node name="WARP_A" parent="." index="1"]
+position = Vector2( 297, 277 )
+
+[node name="WarpPoint" parent="." index="2" instance=ExtResource( 2 )]
+position = Vector2( 73, 292 )
+scene = "res://maps/WarpTest2.tscn"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WarpPoint" index="0"]
+position = Vector2( -91, -86 )
+polygon = PoolVector2Array( 19, -104, -105, 24, -29, 142, 135, 107 )

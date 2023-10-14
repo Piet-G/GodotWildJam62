@@ -1,0 +1,157 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://ui/TextBox.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ui/GameplayUI.gd" type="Script" id=2]
+[ext_resource path="res://ui/Inventory.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextBox:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 252, 599 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "inventor_slide_in"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Inventory:rect_position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 540.0, 340.0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "inventor_slide_out"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Inventory:rect_position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 340.0, 540.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "slide_text_in"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextBox:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 5.27803 ),
+"update": 0,
+"values": [ Vector2( 252, 599 ), Vector2( 259, 399 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_on_slide_text_in_complete"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "slide_text_out"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextBox:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 259, 399 ), Vector2( 259, 599 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_on_slide_text_out_complete"
+} ]
+}
+
+[node name="GameplayUI" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="TextBox" parent="." instance=ExtResource( 1 )]
+margin_left = 252.0
+margin_top = 599.0
+margin_right = 9795.0
+margin_bottom = 5959.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/inventor_slide_in = SubResource( 4 )
+anims/inventor_slide_out = SubResource( 5 )
+anims/slide_text_in = SubResource( 2 )
+anims/slide_text_out = SubResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -40.0
+margin_top = -40.0
+
+[node name="SelectedItemTexture" type="TextureRect" parent="TextureRect"]
+unique_name_in_owner = true
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -40.0
+margin_top = -40.0
+
+[node name="Inventory" parent="." instance=ExtResource( 3 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -249.5
+margin_right = 249.5
+margin_bottom = 200.0
+
+[connection signal="item_selected" from="Inventory" to="." method="_on_Inventory_item_selected"]
+[connection signal="open_toggled" from="Inventory" to="." method="_on_Inventory_open_toggled"]

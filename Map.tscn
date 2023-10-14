@@ -11,3 +11,5 @@ centered = false
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="."]
 
 [node name="WARP_A" type="Position2D" parent="."]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]

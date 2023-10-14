@@ -41,3 +41,6 @@ text = "There is nothing on the table, it looks like this has been the case for 
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TextClickableElement3" index="0"]
 polygon = PoolVector2Array( -81, -33, -82, 44, 74, 43, 73, -32 )
+
+[node name="CanvasModulate" parent="." index="6"]
+color = Color( 0.290196, 0.360784, 0.521569, 1 )

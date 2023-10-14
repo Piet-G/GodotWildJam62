@@ -9,26 +9,38 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "CanvasLayer",
+"class": "GameplayUI",
+"language": "GDScript",
+"path": "res://ui/GameplayUI.gd"
+}, {
 "base": "Resource",
 "class": "Item",
 "language": "GDScript",
 "path": "res://items/item.gd"
 } ]
 _global_script_class_icons={
+"GameplayUI": "",
 "Item": ""
 }
 
 [application]
 
 config/name="GodotWildJam62"
+run/main_scene="res://ui/TitleScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 ClickManager="*res://ClickManager.gd"
 MapManager="*res://Singletons/MapManager.gd"
-GameplayUi="*res://ui/GameplayUI.tscn"
 Groups="*res://Singletons/Groups.gd"
+WarpManager="*res://Singletons/WarpManager.gd"
+Ui="*res://ui/UI.tscn"
+
+[debug]
+
+settings/stdout/verbose_stdout=true
 
 [display]
 

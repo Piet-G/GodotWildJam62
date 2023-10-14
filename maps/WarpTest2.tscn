@@ -10,16 +10,16 @@ outlines = [ PoolVector2Array( -81, -17, 1143, -18, 1083, 637, -55, 618, -89, -2
 
 [node name="WarpTest2" instance=ExtResource( 1 )]
 
-[node name="NavigationPolygonInstance" parent="." index="0"]
+[node name="NavigationPolygonInstance" parent="." index="1"]
 navpoly = SubResource( 1 )
-
-[node name="WARP_A" parent="." index="1"]
-position = Vector2( 270, 75 )
 
 [node name="WarpPoint" parent="." index="2" instance=ExtResource( 2 )]
 position = Vector2( 1014, 306 )
-scene = "res://maps/WarpTest1.tscn"
+map_id = "WarpTest1"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WarpPoint" index="0"]
 position = Vector2( -3, -1 )
 polygon = PoolVector2Array( -417, -199, 6, -163, 56, 92, -187, 169 )
+
+[node name="WARP_A" parent="." index="3"]
+position = Vector2( 270, 75 )

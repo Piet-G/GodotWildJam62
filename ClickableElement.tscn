@@ -3,8 +3,9 @@
 [ext_resource path="res://ClickableElement.gd" type="Script" id=1]
 
 [node name="ClickableElement" type="StaticBody2D"]
-collision_layer = 0
+collision_layer = 2
 collision_mask = 0
+input_pickable = true
 script = ExtResource( 1 )
 
 [connection signal="input_event" from="." to="." method="_on_ClickableElement_input_event"]

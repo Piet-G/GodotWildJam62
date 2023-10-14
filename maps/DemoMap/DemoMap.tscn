@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Map.tscn" type="PackedScene" id=1]
+[ext_resource path="res://maps/DemoMap/Room_test.png" type="Texture" id=2]
+[ext_resource path="res://elements/TextClickableElement.tscn" type="PackedScene" id=3]
+
+[sub_resource type="NavigationPolygon" id=1]
+vertices = PoolVector2Array( 403, 328, 233, 328, 225, 226, 545, 227, 546, 246, 234, 521, 231, 451, 441, 448, 715, 514, 640, 359, 710, 365, 454, 390, 639, 260, 450, 353, 427, 350, 407, 340 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4 ), PoolIntArray( 5, 6, 7, 8 ), PoolIntArray( 9, 10, 8, 7, 11 ), PoolIntArray( 12, 9, 11, 13, 4 ), PoolIntArray( 0, 4, 13, 14, 15 ) ]
+outlines = [ PoolVector2Array( 225, 226, 545, 227, 546, 246, 639, 260, 640, 359, 710, 365, 715, 514, 234, 521, 231, 451, 441, 448, 454, 390, 450, 353, 427, 350, 407, 340, 403, 328, 233, 328 ) ]
+
+[node name="DemoMap" instance=ExtResource( 1 )]
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 2 )
+
+[node name="NavigationPolygonInstance" parent="." index="1"]
+position = Vector2( 0, -1 )
+navpoly = SubResource( 1 )
+
+[node name="WARP_A" parent="." index="2"]
+position = Vector2( 313, 263 )
+
+[node name="TextClickableElement" parent="." index="3" instance=ExtResource( 3 )]
+position = Vector2( 625, 166 )
+text = "A sturdy dresser, impressive craftsmanship"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TextClickableElement" index="0"]
+polygon = PoolVector2Array( -67, -112, 41, -112, 60, -86, 59, 78, -68, 79, -76, 60 )
+
+[node name="TextClickableElement2" parent="." index="4" instance=ExtResource( 3 )]
+position = Vector2( 683, 306 )
+text = "A barrel, it's empty"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TextClickableElement2" index="0"]
+polygon = PoolVector2Array( 27, -46, -3, -54, -34, -45, -40, -3, -32, 35, -11, 45, 19, 45, 33, 20 )
+
+[node name="TextClickableElement3" parent="." index="5" instance=ExtResource( 3 )]
+position = Vector2( 320, 385 )
+text = "There is nothing on the table, it looks like this has been the case for a while"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TextClickableElement3" index="0"]
+polygon = PoolVector2Array( -81, -33, -82, 44, 74, 43, 73, -32 )

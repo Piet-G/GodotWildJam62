@@ -6,7 +6,8 @@ signal item_selected(item);
 signal open_toggled();
 
 func _ready():
-	build_inventory(MapManager.get_player().get_inventory())
+	pass
+	#build_inventory(MapManager.get_player().get_inventory())
 
 func build_inventory(inventory):
 	for item in inventory:

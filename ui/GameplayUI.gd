@@ -1,4 +1,6 @@
+class_name GameplayUI
 extends CanvasLayer
+
 
 onready var text_box = $TextBox;
 onready var animation_player = $AnimationPlayer;
@@ -19,21 +21,18 @@ func _on_selected_item_changed(item: Item):
 		selected_item_texture.visible = false;
 
 func show_text(text: String):
+	print("Showing text")
+	print_debug(text);
 	text_to_show = text;
 	text_visible = true
 	text_box.clear_text();
-	animation_player.play("slide_text_in");
+	animation_player.play("text_appear");
+	text_box.show_text(text_to_show);
 
 func hide_text():
 	if(text_visible):
-		animation_player.play("slide_text_out");
+		animation_player.play("text_disappear");
 		text_visible = false;
-
-func _on_slide_text_in_complete():
-	text_box.show_text(text_to_show);
-
-func _on_slide_text_out_complete():
-	text_box.clear_text();
 
 func _on_Inventory_item_selected(item):
 	selected_item_texture.texture = item.image;

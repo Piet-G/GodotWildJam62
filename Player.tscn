@@ -6,6 +6,7 @@
 [sub_resource type="CapsuleShape2D" id=1]
 
 [node name="Player" type="KinematicBody2D"]
+z_index = 1
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -17,6 +18,8 @@ shape = SubResource( 1 )
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 target_desired_distance = 10.99
+avoidance_enabled = true
+radius = 40.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true

@@ -7,7 +7,7 @@
 [sub_resource type="Animation" id=1]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("TextBox:rect_position")
+tracks/0/path = NodePath("TextBox:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -16,7 +16,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 252, 599 ) ]
+"values": [ Color( 1, 1, 1, 0 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -51,41 +51,11 @@ tracks/0/keys = {
 "values": [ 340.0, 540.0 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "slide_text_in"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/path = NodePath("TextBox:rect_position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 5.27803 ),
-"update": 0,
-"values": [ Vector2( 252, 599 ), Vector2( 259, 399 ) ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.3 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "_on_slide_text_in_complete"
-} ]
-}
-
-[sub_resource type="Animation" id=3]
-resource_name = "slide_text_out"
+[sub_resource type="Animation" id=6]
+resource_name = "text_appear"
 length = 0.4
 tracks/0/type = "value"
-tracks/0/path = NodePath("TextBox:rect_position")
+tracks/0/path = NodePath("TextBox:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -94,38 +64,44 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 259, 399 ), Vector2( 259, 599 ) ]
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
-tracks/1/type = "method"
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.4 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "_on_slide_text_out_complete"
-} ]
+
+[sub_resource type="Animation" id=7]
+resource_name = "text_disappear"
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextBox:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
 [node name="GameplayUI" type="CanvasLayer"]
 script = ExtResource( 2 )
 
 [node name="TextBox" parent="." instance=ExtResource( 1 )]
-margin_left = 252.0
-margin_top = 599.0
-margin_right = 9795.0
-margin_bottom = 5959.0
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -15.0
+margin_right = 300.0
+margin_bottom = 15.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 1 )
 anims/inventor_slide_in = SubResource( 4 )
 anims/inventor_slide_out = SubResource( 5 )
-anims/slide_text_in = SubResource( 2 )
-anims/slide_text_out = SubResource( 3 )
+anims/text_appear = SubResource( 6 )
+anims/text_disappear = SubResource( 7 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_left = 1.0

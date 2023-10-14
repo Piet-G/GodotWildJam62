@@ -1,6 +1,6 @@
-extends NinePatchRect
+extends Panel
 
-var CHARACTERS_PER_SECOND = 5;
+var CHARACTERS_PER_SECOND = 18;
 
 onready var label = $Label;
 onready var tween = $Tween;

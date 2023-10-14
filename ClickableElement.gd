@@ -18,8 +18,9 @@ func _ready():
 
 func _on_ClickableElement_input_event(viewport, event: InputEvent, shape_idx):
 	if(event.is_action_pressed("click")):
+		print(name, " clicked!")
 		ClickManager.emit_signal("object_clicked", self, get_viewport().get_mouse_position());
 
 func _on_inspect():
 	print("Interacted with ", name)
-	GameplayUi.show_text("A nice wooden table");
+	Ui.gameplay_ui.show_text("A nice wooden table");

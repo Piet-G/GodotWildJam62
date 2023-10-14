@@ -40,7 +40,7 @@ func _on_object_clicked(object, position: Vector2):
 	set_target_position(position);
 
 func set_target_position(pos: Vector2):
-	GameplayUi.hide_text()
+	Ui.gameplay_ui.hide_text()
 	navigation_agent.set_target_location(pos);
 	moving = true;
 	

@@ -4,5 +4,6 @@
 [ext_resource path="res://elements/TextClickableElement.gd" type="Script" id=2]
 
 [node name="TextClickableElement" instance=ExtResource( 1 )]
+collision_layer = 2
 script = ExtResource( 2 )
 text = ""

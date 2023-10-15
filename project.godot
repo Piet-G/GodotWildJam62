@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ClickableElement.gd"
 }, {
+"base": "Node2D",
+"class": "Cutscene",
+"language": "GDScript",
+"path": "res://CutScenes/Cutscene.gd"
+}, {
 "base": "CanvasLayer",
 "class": "GameplayUI",
 "language": "GDScript",
@@ -26,6 +31,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "ClickableElement": "",
+"Cutscene": "",
 "GameplayUI": "",
 "Item": ""
 }
@@ -44,6 +50,7 @@ MapManager="*res://Singletons/MapManager.tscn"
 WarpManager="*res://Singletons/WarpManager.gd"
 Ui="*res://ui/UI.tscn"
 BlackFader="*res://Singletons/BlackFader.tscn"
+CutsceneManager="*res://Singletons/CutsceneManager.gd"
 
 [debug]
 

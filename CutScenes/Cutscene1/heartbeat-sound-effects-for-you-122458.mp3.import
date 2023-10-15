@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/heartbeat-sound-effects-for-you-122458.mp3-7f042570e66ba642f982ddf4b9ef3882.mp3str"
+
+[deps]
+
+source_file="res://CutScenes/Cutscene1/heartbeat-sound-effects-for-you-122458.mp3"
+dest_files=[ "res://.import/heartbeat-sound-effects-for-you-122458.mp3-7f042570e66ba642f982ddf4b9ef3882.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

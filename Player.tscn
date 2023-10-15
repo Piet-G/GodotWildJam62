@@ -214,3 +214,4 @@ anims/walk_up = SubResource( 9 )
 [node name="FootstepsAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 83 )
 autoplay = true
+bus = "SFX"

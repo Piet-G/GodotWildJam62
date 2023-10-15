@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=2]
+[gd_scene load_steps=94 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://player/Character_anim/Player_character/Front/WALK/WALK_FRONT_0005.png" type="Texture" id=2]
@@ -82,6 +82,7 @@
 [ext_resource path="res://player/Character_anim/Player_character/Side/IDLE/IDLE_0001.png" type="Texture" id=80]
 [ext_resource path="res://player/Character_anim/Player_character/Side/IDLE/IDLE_0002.png" type="Texture" id=81]
 [ext_resource path="res://player/Character_anim/Player_character/Side/IDLE/IDLE_0004.png" type="Texture" id=82]
+[ext_resource path="res://player/footsteps-cellar-26890.mp3" type="AudioStream" id=83]
 
 [sub_resource type="SpriteFrames" id=11]
 animations = [ {
@@ -180,6 +181,7 @@ script = ExtResource( 1 )
 position = Vector2( 0, -64 )
 frames = SubResource( 11 )
 animation = "idle_side"
+frame = 7
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -207,3 +209,8 @@ anims/stand_up = SubResource( 5 )
 anims/walk_left = SubResource( 7 )
 anims/walk_right = SubResource( 8 )
 anims/walk_up = SubResource( 9 )
+
+[node name="FootstepsAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 83 )
+autoplay = true
+bus = "SFX"

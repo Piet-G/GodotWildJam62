@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "StaticBody2D",
+"class": "ClickableElement",
+"language": "GDScript",
+"path": "res://ClickableElement.gd"
+}, {
 "base": "CanvasLayer",
 "class": "GameplayUI",
 "language": "GDScript",
@@ -20,6 +25,7 @@ _global_script_classes=[ {
 "path": "res://items/item.gd"
 } ]
 _global_script_class_icons={
+"ClickableElement": "",
 "GameplayUI": "",
 "Item": ""
 }
@@ -33,10 +39,11 @@ config/icon="res://icon.png"
 [autoload]
 
 ClickManager="*res://ClickManager.gd"
-MapManager="*res://Singletons/MapManager.gd"
 Groups="*res://Singletons/Groups.gd"
+MapManager="*res://Singletons/MapManager.tscn"
 WarpManager="*res://Singletons/WarpManager.gd"
 Ui="*res://ui/UI.tscn"
+BlackFader="*res://Singletons/BlackFader.tscn"
 
 [debug]
 

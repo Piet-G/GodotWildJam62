@@ -4,12 +4,7 @@ export var camera_bounds = Rect2(Vector2.ZERO, Vector2(960, 540));
 
 func _init():
 	add_to_group(Groups.MAP)
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	MapManager.attempt_initialise_debug_player(self)
 

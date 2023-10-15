@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://ui/TextBox.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ui/GameplayUI.gd" type="Script" id=2]
 [ext_resource path="res://ui/Inventory.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ui/ChoicePanel.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -17,6 +18,48 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Choice:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "choice_appear"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Choice:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "choice_disappear"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Choice:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -33,6 +76,20 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 540.0, 340.0 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_on_inventory_slide_in"
+} ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -96,8 +153,21 @@ margin_top = -15.0
 margin_right = 300.0
 margin_bottom = 15.0
 
+[node name="Choice" parent="." instance=ExtResource( 4 )]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -301.0
+margin_top = 21.0
+margin_right = 299.0
+margin_bottom = 91.0
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 1 )
+anims/choice_appear = SubResource( 8 )
+anims/choice_disappear = SubResource( 9 )
 anims/inventor_slide_in = SubResource( 4 )
 anims/inventor_slide_out = SubResource( 5 )
 anims/text_appear = SubResource( 6 )
@@ -124,10 +194,9 @@ margin_top = -40.0
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 1.0
 margin_left = -249.5
+margin_top = -200.0
 margin_right = 249.5
-margin_bottom = 200.0
 
 [connection signal="item_selected" from="Inventory" to="." method="_on_Inventory_item_selected"]
 [connection signal="open_toggled" from="Inventory" to="." method="_on_Inventory_open_toggled"]

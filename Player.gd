@@ -121,6 +121,9 @@ func play_or_continue_animation():
 func stop_movement():
 	moving = false;
 
+func set_light_enabled(enabled):
+	$Light2D.enabled = enabled
+
 func _physics_process(delta):
 	if(not moving):
 		play_or_continue_animation();

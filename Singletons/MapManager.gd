@@ -15,7 +15,7 @@ func warp_to_map(scene, id, animate_fade):
 	var position_node = current_map.find_node(id);
 	player.global_position = position_node.global_position;
 	player.set_camera_bounds(current_map.camera_bounds)
-	
+	player.set_light_enabled(current_map.light_enabled)
 	if(animate_fade):
 		BlackFader.fade_in(1);
 	

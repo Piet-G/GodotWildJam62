@@ -1,0 +1,97 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://maps/Granny_house/granny_house_main.png" type="Texture" id=1]
+[ext_resource path="res://Map.tscn" type="PackedScene" id=2]
+[ext_resource path="res://elements/TextClickableElement.tscn" type="PackedScene" id=3]
+[ext_resource path="res://elements/WarpInteract.tscn" type="PackedScene" id=4]
+[ext_resource path="res://maps/Granny_house/fauteuil.png" type="Texture" id=5]
+
+[sub_resource type="NavigationPolygon" id=1]
+vertices = PoolVector2Array( 610, 288, 615, 479, 545, 327, 550, 232, 538, 384, 347, 482, 501, 398, 444, 382, 672, 234, 678, 283, 525, 298, 527, 245, 367, 245, 340, 533, 265, 541, 261, 481, 367, 223, 472, 297, 439, 305, 214, 481, 217, 224, 438, 359 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 2, 1 ), PoolIntArray( 4, 1, 5, 6 ), PoolIntArray( 7, 6, 5 ), PoolIntArray( 8, 9, 0, 3 ), PoolIntArray( 3, 2, 10, 11 ), PoolIntArray( 12, 5, 13, 14, 15, 16 ), PoolIntArray( 12, 11, 10, 17 ), PoolIntArray( 12, 17, 18 ), PoolIntArray( 15, 19, 20, 16 ), PoolIntArray( 7, 5, 12, 21 ), PoolIntArray( 21, 12, 18 ) ]
+outlines = [ PoolVector2Array( 217, 224, 367, 223, 367, 245, 527, 245, 550, 232, 672, 234, 678, 283, 610, 288, 615, 479, 347, 482, 340, 533, 265, 541, 261, 481, 214, 481 ), PoolVector2Array( 438, 359, 439, 305, 472, 297, 525, 298, 545, 327, 538, 384, 501, 398, 444, 382 ) ]
+
+[node name="Map" instance=ExtResource( 2 )]
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 1 )
+
+[node name="NavigationPolygonInstance" parent="." index="1"]
+navpoly = SubResource( 1 )
+
+[node name="WARP_A" parent="." index="2"]
+position = Vector2( 303, 485 )
+
+[node name="Book1" parent="." index="4" instance=ExtResource( 3 )]
+position = Vector2( 551, 152 )
+text = "A well used cookbook: \"500ml milk, 3 eggs, 500g sugar,...\""
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Book1" index="0"]
+polygon = PoolVector2Array( 57, -5, 42, -31, 50, -36, 64, -10 )
+
+[node name="Cabinet" parent="." index="5" instance=ExtResource( 3 )]
+position = Vector2( 445, 177 )
+text = "Back in the day visitors would often get a sweet stored in this cabinet"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cabinet" index="0"]
+polygon = PoolVector2Array( -73, 66, -73, -74, 78, -75, 80, 64 )
+
+[node name="Book2" parent="." index="6" instance=ExtResource( 3 )]
+position = Vector2( 551, 152 )
+text = "History of the world volume VII: \"...elder gods forsake humanty and dissapeared into myth...\""
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Book2" index="0"]
+position = Vector2( 5, -37 )
+polygon = PoolVector2Array( 43, -4, 42, -31, 52, -31, 52, -4 )
+
+[node name="Book3" parent="." index="7" instance=ExtResource( 3 )]
+position = Vector2( 542, 130 )
+text = "History of the world volume I: \"... spoke: 'All is as it ever will be', the sky shattered and...\" you know the story"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Book3" index="0"]
+position = Vector2( -25, 21 )
+polygon = PoolVector2Array( 43, -4, 42, -31, 52, -31, 52, -4 )
+
+[node name="Book4" parent="." index="8" instance=ExtResource( 3 )]
+position = Vector2( 592, 167 )
+text = "A note sticks out of the book, \"Reminder, shovel lent to butcher\""
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Book4" index="0"]
+position = Vector2( -25, 21 )
+polygon = PoolVector2Array( 41, -2, 42, -31, 53, -31, 53, -2 )
+
+[node name="Book5" parent="." index="9" instance=ExtResource( 3 )]
+position = Vector2( 573, 202 )
+text = "A book titled  \"The lusty Argonian maid\" ......... ....... ....... you put the book back where you found it"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Book5" index="0"]
+position = Vector2( -25, 21 )
+polygon = PoolVector2Array( 41, -2, 42, -31, 53, -31, 53, -2 )
+
+[node name="WARP_B" type="Position2D" parent="." index="10"]
+position = Vector2( 291, 238 )
+
+[node name="WarpInteract" parent="." index="11" instance=ExtResource( 4 )]
+map_id = "GrannyBedroom"
+position_id = "WARP_A"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WarpInteract" index="0"]
+polygon = PoolVector2Array( 259, 221, 259, 84, 330, 83, 330, 221 )
+
+[node name="TextClickableElement" parent="." index="12" instance=ExtResource( 3 )]
+position = Vector2( 496, 329 )
+exact_position = false
+text = "An armchair, over time it's shape has mophed to fit it's user"
+
+[node name="Sprite" type="Sprite" parent="TextClickableElement" index="0"]
+texture = ExtResource( 5 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TextClickableElement" index="1"]
+polygon = PoolVector2Array( 40, -14, 8, -34, 6, -59, -11, -63, -36, -60, -47, -1, -45, 47, 0, 64, 42, 38, 42, -9 )
+
+[node name="WarpInteract2" parent="." index="13" instance=ExtResource( 4 )]
+map_id = "MainSquare"
+position_id = "GrannyWarp"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WarpInteract2" index="0"]
+polygon = PoolVector2Array( 346, 490, 261, 492, 261, 529, 342, 534 )

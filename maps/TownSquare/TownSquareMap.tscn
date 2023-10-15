@@ -35,16 +35,27 @@ __meta__ = {
 [node name="WARP_A" type="Position2D" parent="."]
 position = Vector2( 1167, 631 )
 
+[node name="GrannyWarp" type="Position2D" parent="."]
+position = Vector2( 2191, 735 )
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.101961, 0.12549, 0.188235, 1 )
 
 [node name="WarpInteract" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1157, 467 )
-map_id = "DemoMap"
-position_id = "WARP_A"
+map_id = "PlayerHouse"
+position_id = "WARP_B"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WarpInteract"]
 polygon = PoolVector2Array( -52, 24, 63, 22, 54, -114, -52, -114 )
+
+[node name="WarpInteract2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2205, 699 )
+map_id = "GrannyHouse"
+position_id = "WARP_A"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WarpInteract2"]
+polygon = PoolVector2Array( -52, 24, 32, 20, 34, -130, -52, -132 )
 
 [node name="YourHouseWarp" type="Position2D" parent="."]
 position = Vector2( 1157, 543 )
@@ -133,28 +144,17 @@ position = Vector2( -22, -267 )
 texture = ExtResource( 7 )
 centered = false
 
-[node name="YSort" type="YSort" parent="."]
-position = Vector2( 1557, 928 )
-
-[node name="TextClickableElement3" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 38, 39 )
-exact_position = false
-text = "An old lamppost"
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/TextClickableElement3"]
-position = Vector2( -20, -129 )
-polygon = PoolVector2Array( -4, -85, -12, 130, 47, 130, 45, -110, 92, -34, 125, -73, 79, -144, 21, -152 )
-
-[node name="Sprite" type="Sprite" parent="YSort/TextClickableElement3"]
-position = Vector2( -22, -267 )
-texture = ExtResource( 7 )
-centered = false
-
 [node name="CutsceneTrigger" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1521, 1129 )
 cutscene = ExtResource( 6 )
 
 [node name="CollisionPolygon2D" parent="CutsceneTrigger" index="0"]
 polygon = PoolVector2Array( 437, 0, -46, 80, -596, 107, 110, 446, 702, 444, 891, -133, 664, -88 )
+
+[node name="TextClickableElement3" parent="." instance=ExtResource( 4 )]
+text = "As a child you looked through this window to see what the owner was baking, those were better days"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TextClickableElement3"]
+polygon = PoolVector2Array( 2331, 589, 2413, 588, 2417, 658, 2332, 662 )
 
 [editable path="CutsceneTrigger"]

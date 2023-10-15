@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://maps/Granny_house/granny_bedroom.png" type="Texture" id=1]
+[ext_resource path="res://Map.tscn" type="PackedScene" id=2]
+[ext_resource path="res://elements/TextClickableElement.tscn" type="PackedScene" id=3]
+[ext_resource path="res://elements/WarpInteract.tscn" type="PackedScene" id=4]
+
+[sub_resource type="NavigationPolygon" id=1]
+vertices = PoolVector2Array( 352, 487, 324, 488, 331, 205, 352, 458, 444, 204, 444, 222, 469, 452, 512, 222, 513, 342, 613, 339, 614, 424, 521, 431, 522, 477, 473, 483 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 3, 2, 4, 5 ), PoolIntArray( 6, 3, 5, 7, 8 ), PoolIntArray( 8, 9, 10, 11 ), PoolIntArray( 6, 8, 11, 12, 13 ) ]
+outlines = [ PoolVector2Array( 331, 205, 444, 204, 444, 222, 512, 222, 513, 342, 613, 339, 614, 424, 521, 431, 522, 477, 473, 483, 469, 452, 352, 458, 352, 487, 324, 488 ) ]
+
+[node name="Map" instance=ExtResource( 2 )]
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 1 )
+
+[node name="NavigationPolygonInstance" parent="." index="1"]
+navpoly = SubResource( 1 )
+
+[node name="WARP_A" parent="." index="2"]
+position = Vector2( 415, 416 )
+
+[node name="TextClickableElement" parent="." index="4" instance=ExtResource( 3 )]
+position = Vector2( 568, 217 )
+text = "The bed somehow looks older than its owner"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TextClickableElement" index="0"]
+polygon = PoolVector2Array( 41, -82, -52, -85, -50, 117, 45, 117 )
+
+[node name="TextClickableElement2" parent="." index="5" instance=ExtResource( 3 )]
+position = Vector2( 568, 217 )
+text = "A small diary, few blank pages remain. \"... I saw that young man in the woods again last night...\""
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TextClickableElement2" index="0"]
+position = Vector2( -71, -116 )
+polygon = PoolVector2Array( 6, 51, -47, 49, -50, 117, 9, 117 )
+
+[node name="WarpInteract" parent="." index="6" instance=ExtResource( 4 )]
+map_id = "GrannyHouse"
+position_id = "WARP_B"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WarpInteract" index="0"]
+polygon = PoolVector2Array( 358, 455, 469, 453, 473, 539, 355, 534, 356, 459, 363, 457 )

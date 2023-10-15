@@ -15,6 +15,8 @@ func _on_Start_pressed():
 	buttons_disabled = true
 	yield(BlackFader, "faded_out")
 	
+	yield(get_tree().create_timer(3), "timeout");
+	
 	MapManager.start_game(initial_scene, "WARP_A")
 	self.queue_free()
 

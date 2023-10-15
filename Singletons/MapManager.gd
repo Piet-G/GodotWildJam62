@@ -39,7 +39,7 @@ func start_game(initial_scene, position_id):
 	warp_to_map(initial_scene, position_id, false)
 	$AudioStreamPlayer2D.play()
 	yield($AudioStreamPlayer2D, "finished")
-	BlackFader.fade_in(1)
+	BlackFader.fade_in(1.5)
 	
 func restart_game():
 	pass

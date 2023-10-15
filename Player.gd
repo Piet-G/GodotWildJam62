@@ -13,7 +13,7 @@ var moving = false;
 var current_animation;
 var state_flags = {}
 
-var inventory = [preload("res://items/rusted_key.tres")];
+var inventory = [preload("res://items/rusted_key.tres"), preload("res://items/shovel.tres")];
 var selected_item = null;
 var movement_locked = false
 
@@ -118,7 +118,9 @@ func play_or_continue_animation():
 	sprite.flip_h = flipped;
 	sprite.animation = state + "_" + direction
 	
-	
+func stop_movement():
+	moving = false;
+
 func _physics_process(delta):
 	if(not moving):
 		play_or_continue_animation();

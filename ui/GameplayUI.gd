@@ -12,7 +12,7 @@ onready var inventory = $Inventory
 onready var choice = $Choice
 
 var text_visible = false;
-var inventory_open = true;
+var inventory_open = false;
 var item_to_add;
 
 func _ready():
@@ -63,6 +63,8 @@ func hide_text():
 		animation_player.play("text_disappear");
 		text_visible = false;
 		text_box.attempt_interrupt()
+	if(inventory_open):
+		close_inventory()
 
 func _on_Inventory_item_selected(item):
 	selected_item_texture.texture = item.image;
@@ -70,14 +72,18 @@ func _on_Inventory_item_selected(item):
 	
 func toggle_inventory_open():
 	if(!inventory_open):
-		animation_player.play("inventor_slide_in");
+		open_inventory();
 	else:
-		animation_player.play("inventor_slide_out");
-	inventory_open = !inventory_open;
+		close_inventory();
 
 func open_inventory():
 	animation_player.play("inventor_slide_in");
 	inventory_open = true;
+	MapManager.get_player().stop_movement()
+	
+func close_inventory():
+	animation_player.play("inventor_slide_out");
+	inventory_open = false;
 
 func _on_Inventory_open_toggled():
 	toggle_inventory_open()

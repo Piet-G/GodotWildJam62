@@ -8,3 +8,6 @@ func set_item(item: Item):
 	name_label.text = item.name;
 	item_image.texture = item.image;
 	description_label.text = item.description;
+
+func appear():
+	$AnimationPlayer.play("appear")

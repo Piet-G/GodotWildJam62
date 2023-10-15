@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/girl-scream-83987.mp3-4d44d65611085959b81a6df0ab4f30d6.mp3str"
+
+[deps]
+
+source_file="res://girl-scream-83987.mp3"
+dest_files=[ "res://.import/girl-scream-83987.mp3-4d44d65611085959b81a6df0ab4f30d6.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

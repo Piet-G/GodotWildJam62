@@ -30,6 +30,14 @@ func start_game(initial_scene, position_id):
 	initialise_player()
 	Ui.open_gameplay_ui()
 	warp_to_map(initial_scene, position_id)
+	$AudioStreamPlayer2D.play()
+	yield($AudioStreamPlayer2D, "finished")
+	BlackFader.fade_in(1)
+	
+func restart_game():
+	pass
 	
 func get_player():
 	return player;
+
+

@@ -1,22 +1,47 @@
 extends KinematicBody2D
 
 signal selected_item_chaged(selected_item)
+signal item_added(item)
 
 var target_position = Vector2(0,0);
 var target_object;
 
-var MAX_SPEED = 80;
+var MAX_SPEED = 100;
 var velocity = Vector2.ZERO;
 var last_direction = Vector2.DOWN;
 var moving = false;
 var current_animation;
+var state_flags = {}
 
 var inventory = [preload("res://items/rusted_key.tres")];
 var selected_item = null;
+var movement_locked = false
 
 onready var camera = $Camera2D;
 onready var navigation_agent = $NavigationAgent2D;
 onready var sprite = $AnimatedSprite;
+
+func is_flag_set(flag):
+	return state_flags.has(flag);
+	
+func set_flag(flag):
+	state_flags[flag] = true;
+
+func lock_movement():
+	movement_locked = true;
+	
+func unlock_movement():
+	movement_locked = false;
+
+func add_item_to_inventory(item: Item):
+	inventory.append(item);
+	emit_signal("item_added", item)
+	
+func has_item(item: Item):
+	return inventory.has(item);
+	
+func is_holding_item(item: Item):
+	return selected_item == item;
 
 func _init():
 	add_to_group(Groups.PLAYER);
@@ -35,10 +60,14 @@ func get_inventory():
 	return inventory;
 	
 func _on_map_clicked(position: Vector2):
+	if(movement_locked):
+		return
 	target_object = null;
 	set_target_position(position)
 
 func _on_object_clicked(object, position: Vector2):
+	if(movement_locked):
+		return
 	target_object = object;
 	set_target_position(position);
 
@@ -56,7 +85,9 @@ func play_or_continue_animation():
 	
 	if(moving):
 		state = "walk"
+		$FootstepsAudio.stream_paused = false
 	else:
+		$FootstepsAudio.stream_paused = true
 		state = "idle"
 		
 	if(angle >= 2 * PI - PI / 8 or angle < 0 + PI / 8):

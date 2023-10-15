@@ -1,128 +1,156 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://elements/WarpInteract.tscn" type="PackedScene" id=1]
 [ext_resource path="res://maps/TownSquare/Main_Squaredraft.png" type="Texture" id=2]
-[ext_resource path="res://Map.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Map.gd" type="Script" id=3]
 [ext_resource path="res://elements/TextClickableElement.tscn" type="PackedScene" id=4]
 [ext_resource path="res://elements/CutsceneTrigger.tscn" type="PackedScene" id=5]
 [ext_resource path="res://CutScenes/Cutscene1/Cutscene1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://maps/TownSquare/lamp.png" type="Texture" id=7]
 
 [sub_resource type="NavigationPolygon" id=1]
-vertices = PoolVector2Array( 195, 2115, 160, 2167, 167, 2069, 3675, 2513, 3750, 2628, 818, 2682, 3066, 2493, 972, 688, 215, 655, 117, 421, 481, 455, 957, 532, 278, 2055, 282, 2103, 2714, 736, 3092, 1065, 3113, 1505, 2866, 1738, 2123, 1393, 2119, 1346, 2115, 736, 486, 2684, 481, 2622, 626, 2628, 709, 2608, 745, 2578, 927, 2443, 1111, 2471, 3570.06, 1551.46, 3665, 1560, 3639, 1695, 3476, 1543, 3414, 1510, 2121, 1449, 2733, 1961, 2516, 1947, 2008, 1950, 1980, 1771, 2091, 1486, 2042, 1515, 1965, 1534, 1536, 1781, 317, 1748, 146, 1945, 39, 1838, 39, 1432, 133, 1327, 368, 1314, 425, 1444, 2501, 2440, 3060, 2452, 1515, 2440, 731, 2520, 904, 2185, 1925, 1538, 1874, 1536, 1790.98, 1516.2, 1726, 1484, 752, 1929, 2725, 2251, 3195, 894, 3635, 881, 3635, 1026, 2963, 627, 3192, 628, 1867, 1147, 1815, 532, 1977, 535, 2079, 543, 2086, 729, 1913, 1150, 557, 1437, 1041, 511, 1629, 508, 2803, 582, 655, 2433, 620, 2369, 556, 2239, 707, 2021, 744, 1991, 354, 2119, 389, 1958, 529, 1977, 488, 2183, 2070, 1290, 2007, 1273, 1961, 1184, 626, 1230, 731, 1230, 1834, 1190, 975, 935, 1703, 517, 1712, 1343, 972, 1138, 1763, 1298, 1814, 1258, 1507, 2417, 1105, 2193, 2948, 2291, 3060, 2360 )
-polygons = [ PoolIntArray( 0, 1, 2 ), PoolIntArray( 3, 4, 5, 6 ), PoolIntArray( 7, 8, 9, 10, 11 ), PoolIntArray( 0, 2, 12, 13 ), PoolIntArray( 14, 15, 16, 17, 18, 19, 20 ), PoolIntArray( 21, 22, 23, 5 ), PoolIntArray( 5, 23, 24 ), PoolIntArray( 5, 24, 25, 26, 27 ), PoolIntArray( 28, 29, 30, 17, 31 ), PoolIntArray( 32, 31, 17, 16 ), PoolIntArray( 33, 18, 17, 34, 35 ), PoolIntArray( 33, 35, 36, 37, 38 ), PoolIntArray( 39, 38, 37 ), PoolIntArray( 40, 39, 37, 41 ), PoolIntArray( 42, 43, 44, 45, 46, 47, 48 ), PoolIntArray( 49, 50, 6, 5, 27, 51 ), PoolIntArray( 26, 25, 52, 53 ), PoolIntArray( 54, 40, 41 ), PoolIntArray( 55, 54, 41 ), PoolIntArray( 56, 55, 41 ), PoolIntArray( 57, 56, 41, 58 ), PoolIntArray( 49, 35, 34, 59 ), PoolIntArray( 60, 61, 62, 15 ), PoolIntArray( 14, 63, 64, 60, 15 ), PoolIntArray( 65, 66, 67, 68, 69, 70 ), PoolIntArray( 58, 42, 48, 71 ), PoolIntArray( 7, 11, 72, 73 ), PoolIntArray( 14, 74, 63 ), PoolIntArray( 53, 52, 75, 76, 77, 78, 79 ), PoolIntArray( 80, 13, 12, 81, 82 ), PoolIntArray( 83, 80, 82, 78 ), PoolIntArray( 77, 83, 78 ), PoolIntArray( 20, 19, 84 ), PoolIntArray( 20, 84, 85, 86 ), PoolIntArray( 20, 86, 70, 69 ), PoolIntArray( 71, 87, 88, 58 ), PoolIntArray( 65, 89, 90, 7, 73, 91, 66 ), PoolIntArray( 92, 58, 88, 93, 94 ), PoolIntArray( 93, 90, 89, 95, 94 ), PoolIntArray( 58, 92, 57 ), PoolIntArray( 79, 58, 41, 96, 97 ), PoolIntArray( 98, 99, 50, 49, 59 ), PoolIntArray( 96, 51, 27, 97 ), PoolIntArray( 79, 97, 53 ) ]
-outlines = [ PoolVector2Array( 117, 421, 481, 455, 957, 532, 1041, 511, 1629, 508, 1703, 517, 1815, 532, 1977, 535, 2079, 543, 2086, 729, 2115, 736, 2714, 736, 2803, 582, 2963, 627, 3192, 628, 3195, 894, 3635, 881, 3635, 1026, 3092, 1065, 3113, 1505, 3414, 1510, 3476, 1543, 3570.06, 1551.46, 3665, 1560, 3639, 1695, 2866, 1738, 2733, 1961, 2725, 2251, 2948, 2291, 3060, 2360, 3060, 2452, 3066, 2493, 3675, 2513, 3750, 2628, 818, 2682, 486, 2684, 481, 2622, 626, 2628, 709, 2608, 745, 2578, 731, 2520, 655, 2433, 620, 2369, 556, 2239, 488, 2183, 354, 2119, 282, 2103, 195, 2115, 160, 2167, 167, 2069, 278, 2055, 389, 1958, 529, 1977, 707, 2021, 744, 1991, 752, 1929, 317, 1748, 146, 1945, 39, 1838, 39, 1432, 133, 1327, 368, 1314, 425, 1444, 557, 1437, 626, 1230, 731, 1230, 972, 1138, 975, 935, 972, 688, 215, 655 ), PoolVector2Array( 1712, 1343, 1763, 1298, 1814, 1258, 1834, 1190, 1867, 1147, 1913, 1150, 1961, 1184, 2007, 1273, 2070, 1290, 2119, 1346, 2123, 1393, 2121, 1449, 2091, 1486, 2042, 1515, 1965, 1534, 1925, 1538, 1874, 1536, 1790.98, 1516.2, 1726, 1484 ), PoolVector2Array( 1515, 2440, 2501, 2440, 2516, 1947, 2008, 1950, 1980, 1771, 1536, 1781, 1507, 2417 ), PoolVector2Array( 927, 2443, 904, 2185, 1105, 2193, 1111, 2471 ) ]
+vertices = PoolVector2Array( 195, 2115, 160, 2167, 167, 2069, 3675, 2513, 3750, 2628, 818, 2682, 3066, 2493, 972, 688, 215, 655, 117, 421, 481, 455, 957, 532, 278, 2055, 282, 2103, 3092, 1065, 3113, 1505, 2866, 1738, 2123, 1393, 2119, 1346, 486, 2684, 481, 2622, 626, 2628, 709, 2608, 745, 2578, 927, 2443, 1111, 2471, 3570.06, 1551.46, 3665, 1560, 3639, 1695, 3476, 1543, 3414, 1510, 2121, 1449, 2733, 1961, 2516, 1947, 2008, 1950, 1980, 1771, 2091, 1486, 2042, 1515, 1965, 1534, 1536, 1781, 317, 1748, 146, 1945, 39, 1838, 39, 1432, 133, 1327, 368, 1314, 425, 1444, 2501, 2440, 3060, 2452, 1515, 2440, 731, 2520, 904, 2185, 1925, 1538, 1874, 1536, 1790.98, 1516.2, 744, 1991, 752, 1929, 972, 1138, 1726, 1484, 1105, 2193, 2725, 2251, 3195, 894, 3635, 881, 3635, 1026, 2714, 736, 1434, 815, 1422, 755, 2115, 736, 2963, 627, 3192, 628, 1977, 535, 2079, 543, 2086, 729, 1815, 532, 557, 1437, 1316, 760, 1041, 511, 1370, 732, 2803, 582, 655, 2433, 620, 2369, 556, 2239, 707, 2021, 354, 2119, 389, 1958, 529, 1977, 488, 2183, 1629, 508, 1703, 517, 975, 935, 1304, 802, 1320, 840, 626, 1230, 731, 1230, 1867, 1147, 1412, 858, 1913, 1150, 1357, 862, 1712, 1343, 2070, 1290, 2948, 2291, 3060, 2360, 1507, 2417, 1763, 1298, 1814, 1258, 1834, 1190, 1961, 1184, 2007, 1273 )
+polygons = [ PoolIntArray( 0, 1, 2 ), PoolIntArray( 3, 4, 5, 6 ), PoolIntArray( 7, 8, 9, 10, 11 ), PoolIntArray( 0, 2, 12, 13 ), PoolIntArray( 14, 15, 16, 17, 18 ), PoolIntArray( 19, 20, 21, 5 ), PoolIntArray( 5, 21, 22 ), PoolIntArray( 5, 22, 23, 24, 25 ), PoolIntArray( 26, 27, 28, 16, 29 ), PoolIntArray( 30, 29, 16, 15 ), PoolIntArray( 31, 17, 16, 32, 33 ), PoolIntArray( 31, 33, 34, 35, 36 ), PoolIntArray( 37, 36, 35 ), PoolIntArray( 38, 37, 35, 39 ), PoolIntArray( 40, 41, 42, 43, 44, 45, 46 ), PoolIntArray( 47, 48, 6, 5, 25, 49 ), PoolIntArray( 24, 23, 50, 51 ), PoolIntArray( 52, 38, 39 ), PoolIntArray( 53, 52, 39 ), PoolIntArray( 54, 53, 39 ), PoolIntArray( 55, 56, 57, 58, 54, 39, 59, 51 ), PoolIntArray( 47, 33, 32, 60 ), PoolIntArray( 61, 62, 63, 14 ), PoolIntArray( 64, 61, 14, 65, 66, 67 ), PoolIntArray( 68, 69, 61, 64 ), PoolIntArray( 70, 71, 72, 66, 73 ), PoolIntArray( 56, 40, 46, 74 ), PoolIntArray( 75, 7, 11, 76, 77 ), PoolIntArray( 64, 78, 68 ), PoolIntArray( 51, 50, 79, 80, 81, 82, 55 ), PoolIntArray( 83, 13, 12, 84, 85 ), PoolIntArray( 86, 83, 85, 82 ), PoolIntArray( 81, 86, 82 ), PoolIntArray( 72, 67, 66 ), PoolIntArray( 76, 87, 88, 73, 66, 77 ), PoolIntArray( 89, 7, 75, 90 ), PoolIntArray( 89, 90, 91, 57 ), PoolIntArray( 74, 92, 93, 56 ), PoolIntArray( 94, 95, 65, 14, 96 ), PoolIntArray( 57, 91, 97, 98, 58 ), PoolIntArray( 14, 18, 99 ), PoolIntArray( 56, 93, 57 ), PoolIntArray( 100, 101, 48, 47, 60 ), PoolIntArray( 102, 49, 25, 59 ), PoolIntArray( 39, 102, 59 ), PoolIntArray( 98, 97, 95, 103 ), PoolIntArray( 104, 103, 95, 105 ), PoolIntArray( 94, 105, 95 ), PoolIntArray( 106, 96, 14 ), PoolIntArray( 106, 14, 99, 107 ) ]
+outlines = [ PoolVector2Array( 117, 421, 481, 455, 957, 532, 1041, 511, 1629, 508, 1703, 517, 1815, 532, 1977, 535, 2079, 543, 2086, 729, 2115, 736, 2714, 736, 2803, 582, 2963, 627, 3192, 628, 3195, 894, 3635, 881, 3635, 1026, 3092, 1065, 3113, 1505, 3414, 1510, 3476, 1543, 3570.06, 1551.46, 3665, 1560, 3639, 1695, 2866, 1738, 2733, 1961, 2725, 2251, 2948, 2291, 3060, 2360, 3060, 2452, 3066, 2493, 3675, 2513, 3750, 2628, 818, 2682, 486, 2684, 481, 2622, 626, 2628, 709, 2608, 745, 2578, 731, 2520, 655, 2433, 620, 2369, 556, 2239, 488, 2183, 354, 2119, 282, 2103, 195, 2115, 160, 2167, 167, 2069, 278, 2055, 389, 1958, 529, 1977, 707, 2021, 744, 1991, 752, 1929, 317, 1748, 146, 1945, 39, 1838, 39, 1432, 133, 1327, 368, 1314, 425, 1444, 557, 1437, 626, 1230, 731, 1230, 972, 1138, 975, 935, 972, 688, 215, 655 ), PoolVector2Array( 1712, 1343, 1763, 1298, 1814, 1258, 1834, 1190, 1867, 1147, 1913, 1150, 1961, 1184, 2007, 1273, 2070, 1290, 2119, 1346, 2123, 1393, 2121, 1449, 2091, 1486, 2042, 1515, 1965, 1534, 1925, 1538, 1874, 1536, 1790.98, 1516.2, 1726, 1484 ), PoolVector2Array( 1515, 2440, 2501, 2440, 2516, 1947, 2008, 1950, 1980, 1771, 1536, 1781, 1507, 2417 ), PoolVector2Array( 927, 2443, 904, 2185, 1105, 2193, 1111, 2471 ), PoolVector2Array( 1304, 802, 1316, 760, 1370, 732, 1422, 755, 1434, 815, 1412, 858, 1357, 862, 1320, 840 ) ]
 
-[node name="Map" instance=ExtResource( 3 )]
+[node name="Map" type="YSort"]
 position = Vector2( 1, 0 )
+script = ExtResource( 3 )
 camera_bounds = Rect2( 0, 0, 3840, 3240 )
 
-[node name="Sprite" parent="." index="0"]
+[node name="Sprite" type="Sprite" parent="."]
+z_index = -1
 texture = ExtResource( 2 )
+centered = false
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="NavigationPolygonInstance" parent="." index="1"]
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="."]
 navpoly = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="WARP_A" parent="." index="2"]
+[node name="WARP_A" type="Position2D" parent="."]
 position = Vector2( 1167, 631 )
 
-[node name="CanvasModulate" parent="." index="3"]
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.101961, 0.12549, 0.188235, 1 )
 
-[node name="WarpInteract" parent="." index="4" instance=ExtResource( 1 )]
+[node name="WarpInteract" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1157, 467 )
 map_id = "DemoMap"
 position_id = "WARP_A"
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WarpInteract" index="0"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WarpInteract"]
 polygon = PoolVector2Array( -52, 24, 63, 22, 54, -114, -52, -114 )
 
-[node name="YourHouseWarp" type="Position2D" parent="." index="5"]
+[node name="YourHouseWarp" type="Position2D" parent="."]
 position = Vector2( 1157, 543 )
 
-[node name="Fountain" parent="." index="6" instance=ExtResource( 4 )]
+[node name="Fountain" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1909, 1379 )
 text = "A relic of times gone by, no-one can remember the water flowing"
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Fountain" index="0"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Fountain"]
 polygon = PoolVector2Array( -174, 85, -123, 125, -57, 142, 13, 150, 122, 134, 194, 94, 205, -11, 171, -68, 83, -102, 93, -130, 81, -142, 14, -152, 31, -194, 14, -209, -32, -207, -31, -153, -77, -140, -87, -104, -137, -77, -185, -32, -186, 48 )
 
-[node name="ScaryTree" parent="." index="7" instance=ExtResource( 4 )]
+[node name="ScaryTree" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1768, 335 )
 text = "Did that tree always look like that?"
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ScaryTree" index="0"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ScaryTree"]
 polygon = PoolVector2Array( -18, -17, -69, 100, -30, 114, -1, 102, 119, 95, 127, 48, 118, 7, 92, -24 )
 
-[node name="BirdsTree2" parent="." index="8" instance=ExtResource( 4 )]
+[node name="BirdsTree2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1972, 336 )
 text = "Birds used to nest in these trees, they are gone now"
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BirdsTree2" index="0"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BirdsTree2"]
 polygon = PoolVector2Array( -36, -18, -28, 25, 3, 63, 9, 33, 33, -5, 11, -34 )
 
-[node name="TextClickableElement" parent="." index="9" instance=ExtResource( 4 )]
+[node name="TextClickableElement" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1322, 312 )
 text = "Your home since childhood, it's bricks are etched into your memory"
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TextClickableElement" index="0"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TextClickableElement"]
 polygon = PoolVector2Array( -310, 178, -235, 178, -232, 25, -94, 30, -93, 174, 316, 171, 312, -253, -291, -262, -319, -240 )
 
-[node name="Lamppost1" parent="." index="10" instance=ExtResource( 4 )]
-position = Vector2( 1367, 741 )
-text = "An old lamppost"
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Lamppost1" index="0"]
-polygon = PoolVector2Array( -25, 70, -18, 83, -3, 85, 17, 78, 16, 61, 22, -139, 29, -160, -3, -172, -18, -154, -17, -10, -25, 67 )
-
-[node name="Lamppost2" parent="." index="11" instance=ExtResource( 4 )]
+[node name="Lamppost2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 974, 1389 )
 text = "An old lamppost, it's broken"
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Lamppost2" index="0"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Lamppost2"]
 polygon = PoolVector2Array( -25, 70, -18, 83, -3, 85, 17, 78, 16, 61, 11, -74, 4, -88, -25, -87, -122, 40, -122, 82, -85, 71, -17, -53, -17, -10, -25, 67 )
 
-[node name="Hook" parent="." index="12" instance=ExtResource( 4 )]
+[node name="Hook" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1460, 2107 )
 text = "There are stories about this hook..."
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hook" index="0"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hook"]
 polygon = PoolVector2Array( -14, -31, 17, -29, 18, 57, 28, 76, 26, 100, -2, 111, -21, 89 )
 
-[node name="Water" parent="." index="13" instance=ExtResource( 4 )]
+[node name="Water" parent="." instance=ExtResource( 4 )]
 position = Vector2( 384, 2367 )
 text = "The water is calm tonight, you can make out your reflection"
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Water" index="0"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Water"]
 polygon = PoolVector2Array( -157, -242, -97, -251, -29, -234, 38, -194, 109, -170, 151, -137, 202, -51, 224, 22, 262, 73, 315, 127, 350, 185, 335, 224, 260, 258, 83, 249, -13, 214, -62, 155, -143, 141, -169, 150, -218, 137, -246, 96, -251, 48, -248, 0, -210, -133, -204, -208, -185, -241 )
 
-[node name="WoodHouse" parent="." index="14" instance=ExtResource( 4 )]
+[node name="WoodHouse" parent="." instance=ExtResource( 4 )]
 position = Vector2( 517, 928 )
 text = "The house looks sturdy and well built"
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WoodHouse" index="0"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WoodHouse"]
 polygon = PoolVector2Array( -428, -210, 435, -221, 435, 202, 344, 201, 350, 75, 268, 72, 266, 192, 258, 150, 51, 152, 40, 157, 41, 197, 20, 197, 18, 317, -404, 324, -402, 149, -428, 160, -437, 152 )
 
-[node name="Rubble" parent="." index="15" instance=ExtResource( 4 )]
+[node name="Rubble" parent="." instance=ExtResource( 4 )]
 position = Vector2( 3533, 1486 )
 text = "Just rubble and dust"
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rubble" index="0"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rubble"]
 polygon = PoolVector2Array( 16, -77, 76, -20, 107, 12, 130, 14, 142, 28, 137, 45, 103, 45, 83, 56, 67, 50, 65, 34, 40, 53, -14, 61, -39, 43, -52, 40, -61, 52, -105, 46, -105, 25, -85, 7, -70, -9, -47, -19, -21, -77, -1, -79, 1, -24, -3, -8, -12, 10, 17, 35, 55, 17, 42, -3, 5, -24, 3, -80 )
 
-[node name="Note" parent="." index="16" instance=ExtResource( 4 )]
+[node name="Note" parent="." instance=ExtResource( 4 )]
 position = Vector2( 3548, 1495 )
 text = "A note is attached: \"I had to go in the woods alone today, I wish you were there --A\""
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Note" index="0"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Note"]
 polygon = PoolVector2Array( -17, -4, -6, -15, 29, -3, 9, 16, -8, 13, -18, 2 )
 
-[node name="CutsceneTrigger" parent="." index="17" instance=ExtResource( 5 )]
+[node name="TextClickableElement2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1369, 830 )
+exact_position = false
+text = "An old lamppost"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TextClickableElement2"]
+position = Vector2( -20, -129 )
+polygon = PoolVector2Array( -4, -85, -12, 130, 47, 130, 45, -110, 92, -34, 125, -73, 79, -144, 21, -152 )
+
+[node name="Sprite" type="Sprite" parent="TextClickableElement2"]
+position = Vector2( -22, -267 )
+texture = ExtResource( 7 )
+centered = false
+
+[node name="YSort" type="YSort" parent="."]
+position = Vector2( 1557, 928 )
+
+[node name="TextClickableElement3" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 38, 39 )
+exact_position = false
+text = "An old lamppost"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/TextClickableElement3"]
+position = Vector2( -20, -129 )
+polygon = PoolVector2Array( -4, -85, -12, 130, 47, 130, 45, -110, 92, -34, 125, -73, 79, -144, 21, -152 )
+
+[node name="Sprite" type="Sprite" parent="YSort/TextClickableElement3"]
+position = Vector2( -22, -267 )
+texture = ExtResource( 7 )
+centered = false
+
+[node name="CutsceneTrigger" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1521, 1129 )
 cutscene = ExtResource( 6 )
 

@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 var current_map: Node2D;
 var player: KinematicBody2D;

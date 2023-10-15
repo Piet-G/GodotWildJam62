@@ -45,7 +45,7 @@ func is_holding_item(item: Item):
 
 func _init():
 	add_to_group(Groups.PLAYER);
-
+	
 func _ready():
 	ClickManager.connect("object_clicked", self, "_on_object_clicked");
 	ClickManager.connect("map_clicked", self, "_on_map_clicked");

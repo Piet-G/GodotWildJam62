@@ -8,3 +8,5 @@ func get_map_scene(map_id):
 			return load("res://maps/WarpTest1.tscn")
 		"WarpTest2":
 			return load("res://maps/WarpTest2.tscn")
+		"MainSquare":
+			return load("res://maps/TownSquare/TownSquareMap.tscn")

@@ -181,7 +181,7 @@ script = ExtResource( 1 )
 position = Vector2( 0, -64 )
 frames = SubResource( 11 )
 animation = "idle_side"
-frame = 7
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -194,6 +194,7 @@ avoidance_enabled = true
 radius = 40.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 1, -108 )
 current = true
 
 [node name="Light2D" type="Light2D" parent="."]
@@ -213,4 +214,3 @@ anims/walk_up = SubResource( 9 )
 [node name="FootstepsAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 83 )
 autoplay = true
-bus = "SFX"

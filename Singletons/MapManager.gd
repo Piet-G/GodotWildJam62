@@ -3,7 +3,11 @@ extends Node
 var current_map: Node2D;
 var player: KinematicBody2D;
 
-func warp_to_map(scene, id):
+func warp_to_map(scene, id, animate_fade):
+	if(animate_fade):
+		BlackFader.fade_out(1);
+		yield(BlackFader, "faded_out")
+		
 	if(current_map):
 		current_map.free();
 	current_map = scene.instance();
@@ -11,7 +15,10 @@ func warp_to_map(scene, id):
 	var position_node = current_map.find_node(id);
 	player.global_position = position_node.global_position;
 	player.set_camera_bounds(current_map.camera_bounds)
-		
+	
+	if(animate_fade):
+		BlackFader.fade_in(1);
+	
 func initialise_player():
 	player = load("res://player.tscn").instance()
 	add_child(player);
@@ -29,7 +36,7 @@ func attempt_initialise_debug_player(map):
 func start_game(initial_scene, position_id):
 	initialise_player()
 	Ui.open_gameplay_ui()
-	warp_to_map(initial_scene, position_id)
+	warp_to_map(initial_scene, position_id, false)
 	$AudioStreamPlayer2D.play()
 	yield($AudioStreamPlayer2D, "finished")
 	BlackFader.fade_in(1)

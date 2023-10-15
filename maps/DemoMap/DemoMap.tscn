@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://maps/DemoMap/Room_test.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://elements/ItemGiveElement.tscn" type="PackedScene" id=4]
 [ext_resource path="res://items/rusted_key.tres" type="Resource" id=5]
 [ext_resource path="res://elements/TwoStateClickableElement.tscn" type="PackedScene" id=6]
+[ext_resource path="res://elements/WarpInteract.tscn" type="PackedScene" id=7]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 403, 328, 233, 328, 225, 226, 545, 227, 546, 246, 234, 521, 231, 451, 441, 448, 715, 514, 640, 359, 710, 365, 454, 390, 639, 260, 450, 353, 427, 350, 407, 340 )
@@ -68,3 +69,10 @@ after_text = "The door is unlocked"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TwoStateClickableElement" index="2"]
 polygon = PoolVector2Array( -61, -100, 97, -27, 77, 69, -48, 74 )
+
+[node name="WarpInteract" parent="." index="9" instance=ExtResource( 7 )]
+map_id = "MainSquare"
+position_id = "YourHouseWarp"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WarpInteract" index="0"]
+polygon = PoolVector2Array( 267, 219, 348, 221, 355, 69, 264, 71 )

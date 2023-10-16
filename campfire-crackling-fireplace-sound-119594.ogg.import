@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/campfire-crackling-fireplace-sound-119594.ogg-082b0f98bc910109eb38a7718648198d.oggstr"
+
+[deps]
+
+source_file="res://campfire-crackling-fireplace-sound-119594.ogg"
+dest_files=[ "res://.import/campfire-crackling-fireplace-sound-119594.ogg-082b0f98bc910109eb38a7718648198d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -18,10 +18,8 @@ func _ready():
 #	pass
 
 
-func _on_ClickableElement_input_event(viewport, event: InputEvent, shape_idx):
-	if(event.is_action_pressed("click")):
-		print(name, " clicked!")
-		
+func _on_ClickableElement_input_event(viewport, event: InputEvent, shape_idx):	
+	if(event.is_action_pressed("click")):		
 		var target_position;
 		
 		if(exact_position):
@@ -30,6 +28,8 @@ func _on_ClickableElement_input_event(viewport, event: InputEvent, shape_idx):
 			target_position = global_position;
 		
 		ClickManager.emit_signal("object_clicked", self, target_position);
+		
+	
 
 func _on_inspect():
 	print("Interacted with ", name)

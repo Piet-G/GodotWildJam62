@@ -60,9 +60,9 @@ func show_question(text: String):
 	
 func hide_text():
 	if(text_visible):
-		animation_player.play("text_disappear");
-		text_visible = false;
 		text_box.attempt_interrupt()
+		text_visible = false;
+		animation_player.play("text_disappear");
 	if(inventory_open):
 		close_inventory()
 

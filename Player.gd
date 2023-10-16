@@ -29,6 +29,7 @@ func set_flag(flag):
 
 func lock_movement():
 	movement_locked = true;
+	stop_movement()
 	
 func unlock_movement():
 	movement_locked = false;
@@ -128,6 +129,9 @@ func _physics_process(delta):
 	if(not moving):
 		play_or_continue_animation();
 		return;
+	
+	#if(Input.is_action_pressed("click")):
+	#	_on_map_clicked(get_global_mouse_position())
 	
 	var move_direction = position.direction_to(navigation_agent.get_next_location());
 	last_direction = move_direction;

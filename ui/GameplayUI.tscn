@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://ui/TextBox.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ui/GameplayUI.gd" type="Script" id=2]
 [ext_resource path="res://ui/Inventory.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ui/ChoicePanel.tscn" type="PackedScene" id=4]
 [ext_resource path="res://items/bread.png" type="Texture" id=5]
+[ext_resource path="res://ui/SoundManager.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -196,6 +197,8 @@ anchor_right = 0.5
 margin_left = -249.5
 margin_right = 249.5
 margin_bottom = 200.0
+
+[node name="Sound" parent="." instance=ExtResource( 6 )]
 
 [connection signal="item_selected" from="Inventory" to="." method="_on_Inventory_item_selected"]
 [connection signal="open_toggled" from="Inventory" to="." method="_on_Inventory_open_toggled"]

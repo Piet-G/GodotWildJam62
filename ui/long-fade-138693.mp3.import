@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/long-fade-138693.mp3-ac0b31fdcee5fa6d34af5788902aecdb.mp3str"
+
+[deps]
+
+source_file="res://ui/long-fade-138693.mp3"
+dest_files=[ "res://.import/long-fade-138693.mp3-ac0b31fdcee5fa6d34af5788902aecdb.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

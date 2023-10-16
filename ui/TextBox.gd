@@ -3,7 +3,7 @@ extends Panel
 signal text_appeared()
 signal text_finished_appearing(complete)
 
-var CHARACTERS_PER_SECOND = 18;
+var CHARACTERS_PER_SECOND = 70;
 
 onready var label = $Label;
 onready var tween = $Tween;

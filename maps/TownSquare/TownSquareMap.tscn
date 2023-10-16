@@ -129,14 +129,14 @@ position = Vector2( 1768, 335 )
 text = "Did that tree always look like that?"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ScaryTree"]
-polygon = PoolVector2Array( -18, -17, -69, 100, -30, 114, -1, 102, 119, 95, 127, 48, 118, 7, 92, -24 )
+polygon = PoolVector2Array( -18, -17, -109, 116, -52, 156, 70.9999, 154, 74, 90, 127, 48, 118, 7, 92, -24 )
 
 [node name="BirdsTree2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1972, 336 )
 text = "Birds used to nest in these trees, they are gone now"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BirdsTree2"]
-polygon = PoolVector2Array( -36, -18, -28, 25, 3, 63, 9, 33, 33, -5, 11, -34 )
+polygon = PoolVector2Array( -36, -18, -28, 25, -91, 144, 48, 164, 33, -5, 11, -34 )
 
 [node name="TextClickableElement" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1322, 312 )
@@ -217,7 +217,7 @@ position = Vector2( 1521, 1129 )
 cutscene = ExtResource( 6 )
 
 [node name="CollisionPolygon2D" parent="CutsceneTrigger" index="0"]
-polygon = PoolVector2Array( 437, 0, -46, 80, -596, 107, 110, 446, 702, 444, 891, -133, 664, -88 )
+polygon = PoolVector2Array( 403, -30, 39, -19, -111, 208, 98, 569, 693, 605, 837, 128, 688, -21 )
 
 [node name="TextClickableElement3" parent="." instance=ExtResource( 4 )]
 text = "As a child you looked through this window to see what the owner was baking"

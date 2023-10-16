@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/wind-blowing-sfx-12809.ogg-b311c9a193b39acd7403c788f2a87484.oggstr"
+
+[deps]
+
+source_file="res://ui/wind-blowing-sfx-12809.ogg"
+dest_files=[ "res://.import/wind-blowing-sfx-12809.ogg-b311c9a193b39acd7403c788f2a87484.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

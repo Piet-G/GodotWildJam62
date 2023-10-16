@@ -3,6 +3,7 @@ extends CanvasLayer
 signal cutscene_completed();
 
 func play_cutscene(scene):
+	MapManager.get_player().lock_movement()
 	BlackFader.fade_out(0.5)
 	yield(BlackFader, "faded_out");
 	var cutscene = scene.instance();
@@ -15,4 +16,5 @@ func play_cutscene(scene):
 	cutscene.queue_free();
 	BlackFader.fade_in(0.5);
 	emit_signal("cutscene_completed")
+	MapManager.get_player().unlock_movement()
 

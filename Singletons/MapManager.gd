@@ -3,6 +3,9 @@ extends Node2D
 var current_map: Node2D;
 var player: KinematicBody2D;
 
+func _ready():
+	randomize()
+
 func warp_to_map(scene, id, animate_fade):
 	if(animate_fade):
 		BlackFader.fade_out(1);
